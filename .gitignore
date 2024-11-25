@@ -1,0 +1,17 @@
+# Docker файли
+**/data
+**/.env
+**/node_modules
+**/build
+**/dist
+**/.vscode
+**/.idea
+**/.DS_Store
+
+# PostgreSQL файли
+**/*.log
+**/*.sql
+**/*.bak
+
+Test.sql
+fiialo/Lib/site-packages/

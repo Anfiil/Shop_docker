@@ -1,0 +1,26 @@
+version: '3.8'  # Версія Docker Compose
+services:
+  db:
+    image: postgres:latest  # Docker-образ PostgreSQL
+    container_name: postgres_db  # Назва контейнера
+    environment:  # Змінні середовища для налаштування бази даних
+      POSTGRES_USER: "postgres"  # Ім'я користувача
+      POSTGRES_PASSWORD: "123"  # Пароль
+      POSTGRES_DB: "shop_db"  # Назва бази даних
+    ports:  # Прокидання портів для доступу до бази даних
+      - "5433:5432"  # Локальний порт:Порт у контейнері
+    volumes:  # Прокидання папок для збереження даних
+      - ./data:/var/lib/postgresql/data
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ad.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+
+volumes:
+  postgres_data:
